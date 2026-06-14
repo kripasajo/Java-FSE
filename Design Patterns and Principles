@@ -1,0 +1,38 @@
+Exercise 1: Implementing the Singleton Pattern
+
+class Singleton {
+
+    // Static variable to hold the single instance
+    private static Singleton instance;
+
+    // Private constructor prevents object creation from outside
+    private Singleton() {
+        System.out.println("Singleton Object Created");
+    }
+
+    // Public method to provide access to the instance
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Singleton obj1 = Singleton.getInstance();
+        Singleton obj2 = Singleton.getInstance();
+
+        System.out.println(obj1 == obj2); // true
+    }
+}
+
+// - Singleton classes only have one instance and one global point of access.
+// - the contructor is private to ensure that no object is created using new keyword externally
+// - public static singleton instance variable is created . 
+// - getInstance method creates an instance when needed and returns the same object eachtime.
+// - To prevent external classes from creating multiple objects using the new keyword, ensuring only one instance exists throughout the application.
+
+Exercise 2: Implementing the Factory Method Pattern
