@@ -1,0 +1,84 @@
+Exercise 2: E-commerce Platform Search Function
+class Product {
+
+    private int id;
+    private String name;
+    private double price;
+
+    public Product(int id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void display() {
+        System.out.println("ID: " + id +
+                           ", Name: " + name +
+                           ", Price: " + price);
+    }
+}
+
+class SearchProduct {
+
+    public static Product search(Product[] products, String target) {
+
+        for (Product p : products) {
+            if (p.getName().equalsIgnoreCase(target)) {
+                return p;
+            }
+        }
+
+        return null;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Product[] products = {
+            new Product(101, "Laptop", 55000),
+            new Product(102, "Mouse", 500),
+            new Product(103, "Keyboard", 1200),
+            new Product(104, "Monitor", 15000)
+        };
+
+        String searchItem = "Keyboard";
+
+        Product result = SearchProduct.search(products, searchItem);
+
+        if (result != null) {
+            System.out.println("Product Found:");
+            result.display();
+        } else {
+            System.out.println("Product Not Found");
+        }
+    }
+}
+
+Exercise 7: Financial Forecasting
+
+class FinancialForecast {
+
+    public static double forecast(double revenue,
+                                  double growthRate,
+                                  int years) {
+
+        for (int i = 0; i < years; i++) {
+            revenue *= (1 + growthRate);
+        }
+
+        return revenue;
+    }
+
+    public static void main(String[] args) {
+
+        double result = forecast(100000, 0.10, 5);
+
+        System.out.println("Forecast Revenue = " + result);
+    }
+}
